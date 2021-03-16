@@ -10,3 +10,4 @@
    - pytest -v --tb=line --language=en test_main_page.py
 8. Код работает только для браузера Сhrome.
 9. По умолчанию установлен язык браузера - en .
+10. Удалена точка - from pages.main_page import MainPage при импорте from .pages.main_page import MainPage 
