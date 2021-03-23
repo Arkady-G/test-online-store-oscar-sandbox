@@ -5,9 +5,6 @@
 2. В файл conftest.py добавлен обработчик, который считывает из командной строки параметр language.
 3. В файле conftest.py реализована логика запуска браузера с указанным языком пользователя.
 4. Браузер объявлен в фикстуре browser и передается в тест как параметр.
-5. Проверяется страница товара, доступная по http://selenium1py.pythonanywhere.com/
-6. Тест запускается из консоли с параметром language следующей командой:
-   - pytest -v --tb=line --language=en test_main_page.py
-8. Код работает только для браузера Сhrome.
-9. По умолчанию установлен язык браузера - en .
-10. Импорт из папки pages - from pages.main_page import MainPage (вместо from .pages.main_page import MainPage)
+5. Код работает только для браузера Сhrome.
+6. По умолчанию установлен язык браузера - en .
+7. Импорт из папки pages - from pages.main_page import MainPage (вместо from .pages.main_page import MainPage)
