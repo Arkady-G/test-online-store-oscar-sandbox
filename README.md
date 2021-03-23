@@ -7,4 +7,4 @@
 4. Браузер объявлен в фикстуре browser и передается в тест как параметр.
 5. Код работает только для браузера Сhrome.
 6. По умолчанию установлен язык браузера - en .
-7. Импорт из папки pages - from pages.main_page import MainPage (вместо from .pages.main_page import MainPage)
+7. Импорт из папки pages без точки! Например - from pages.main_page import MainPage (вместо from .pages.main_page import MainPage)
