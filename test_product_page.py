@@ -1,4 +1,6 @@
 # pytest -s test_product_page.py
+# pytest -v --tb=line --language=en -m need_review
+
 import time
 import pytest
 from pages.product_page import ProductPage
@@ -26,6 +28,7 @@ class TestUserAddToBasketFromProductPage():
         product_page.open()
         product_page.guest_cant_see_success_message()
 
+    @pytest.mark.need_review
     def test_user_can_add_product_to_basket(self, browser):
         product_link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/'
         product_page = ProductPage(browser, product_link)
@@ -35,6 +38,7 @@ class TestUserAddToBasketFromProductPage():
         product_page.product_price_in_the_basket_compare_the_added_product()
 
 
+@pytest.mark.need_review
 @pytest.mark.parametrize('offer_link', number_offer)
 def test_guest_can_add_product_to_basket(browser, offer_link):
     offer_link = f'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer{number_offer}'
@@ -46,6 +50,7 @@ def test_guest_can_add_product_to_basket(browser, offer_link):
     product_page.product_price_in_the_basket_compare_the_added_product()
 
 
+@pytest.mark.xfail(reason='test should fall because guest can see success message after adding product to basket')
 def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
     product_link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/'
     product_page = ProductPage(browser, product_link)
@@ -61,6 +66,7 @@ def test_guest_cant_see_success_message(browser):
     product_page.guest_cant_see_success_message()
 
 
+@pytest.mark.xfail(reason='test should fall because success message is not disappeared')
 def test_message_disappeared_after_adding_product_to_basket(browser):
     product_link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/'
     product_page = ProductPage(browser, product_link)
@@ -76,6 +82,7 @@ def test_guest_should_see_login_link_on_product_page(browser):
     page.should_be_login_link()
 
 
+@pytest.mark.need_review
 def test_guest_can_go_to_login_page_from_product_page(browser):
     link = 'http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/'
     page = LoginPage(browser, link)
@@ -84,6 +91,7 @@ def test_guest_can_go_to_login_page_from_product_page(browser):
     page.should_be_login_page()
 
 
+@pytest.mark.need_review
 def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/'
     page = BasketPage(browser, link)
